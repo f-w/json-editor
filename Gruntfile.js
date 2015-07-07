@@ -128,7 +128,8 @@ module.exports = function(grunt) {
           src: ['dist/jsoneditor.js']
         }
       }
-    }
+    },
+    clean: ["dist"]
   });
 
   // These plugins provide necessary tasks.
@@ -136,7 +137,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-concat-sourcemap');
-
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  
   // Default task.
   grunt.registerTask('default', ['jshint:beforeconcat','concat_sourcemap','jshint:afterconcat','uglify']);
 
