@@ -1834,7 +1834,7 @@ JSONEditor.defaults.editors.string = JSONEditor.AbstractEditor.extend({
       this.sceditor_instance.val(sanitized);
     }
     else if(this.summernote_instance) {
-       this.summernote_instance.code(sanitized);
+       this.summernote_instance.summernote('code', sanitized);
     }
     else if(this.epiceditor) {
       this.epiceditor.importFile(null,sanitized);
@@ -2207,7 +2207,7 @@ JSONEditor.defaults.editors.string = JSONEditor.AbstractEditor.extend({
       this.sceditor_instance.destroy();
     }
     else if (this.summernote_instance) {
-      this.summernote_instance.destroy();
+      this.summernote_instance.summernote('destroy');
     }
     else if(this.epiceditor) {
       this.epiceditor.unload();
