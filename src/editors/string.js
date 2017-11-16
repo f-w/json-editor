@@ -325,14 +325,14 @@ JSONEditor.defaults.editors.string = JSONEditor.AbstractEditor.extend({
         window.jQuery && window.jQuery.fn && window.jQuery.fn.summernote) {
         self.summernote_instance =window.jQuery(self.input).summernote({          
           height: 300,
-          onBlur: function(e) {
-            self.input.value = self.summernote_instance.code();
-            self.value = self.input.value;
-            self.is_dirty = true;
-            self.onChange(true);
-          }          
+          callbacks: {
+            onBlur: function(e) {
+              self.value = self.input.value;
+              self.is_dirty = true;
+              self.onChange(true);
+            }
+          }
         }); 
-        self.summernote_instance.code(this.getValue());
       }
 
       // EpicEditor for markdown (if it's loaded)
